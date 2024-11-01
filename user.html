@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <!-- navbar section start -->
+  <nav class="white z-depth-0 top_navbar">
+    <div class="nav-wrapper">
+      <a href="#!" class="blue-text hide-on-med-and-up">User management</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger blue-text"><i class="material-icons">menu</i></a>
+      <ul class="hide-on-med-and-down">
+        <li><a href="sass.html" class="blue-text">Home</a></li>
+        <li><a href="badges.html" class="blue-text">User Managment</a></li>
+        <li><a href="collapsible.html" class="blue-text">Html</a></li>
+        <li><a href="mobile.html" class="blue-text">Css</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="/assets/image/img2.jpg" class="w_100">
+      </div>
+      <a href="#user"><img class="circle" src="/assets/image/img.jpg"></a>
+      <a href="#name"><span class="white-text name">ph-fard</span></a>
+      <a href="#email"><span class="white-text email">parhamfard5@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">insert_link</i>First Link With Icon</a></li>
+    <li><a href="https://codeyad.com">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="/">Home</a></li>
+    <li><a class="waves-effect" href="/user.html">Users</a></li>
+  </ul>
+  <!-- navbar sectionv end -->
+
+  <!-- content section   start -->
+    <section id="top_actions_section">
+        <!-- add button start -->
+         <div class="rounded_pill">
+            <button class="waves-effect waves-light btn blue darken-2 w_100 rounded_pill flex_center">
+                <i class="material-icons">add</i>
+                Add User
+            </button>
+         </div>
+         <!-- add button end -->
+        <!-- search section start -->
+         <div class="row">
+            <div class="input-field col s12">
+              <input id="search" type="text" class="validate">
+              <label for="search">
+                <i class="material-icons pos_relative_top7px">search</i>
+                Search
+              </label>
+
+            </div>
+          </div>
+          <!-- search section end -->
+
+    </section>
+  <!-- content section end -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
