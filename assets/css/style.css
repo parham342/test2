@@ -34,3 +34,18 @@
     top: 7px;
 }
 
+.f-bold{
+    font-weight: bold;
+}
+
+.user_list_item.active .users_list_arrow_icon{
+    transition: all 200ms ease;
+
+}
+.user_list_item.active .users_list_arrow_icon{
+    transform: rotate(180deg);
+
+}
+.user_list_item.active{
+    background-color: rgba(190, 185, 185, 0.322);
+}
