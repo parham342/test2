@@ -53,3 +53,9 @@
 table.highlight > tbody > tr:hover {
     background-color: #bbdefb;
 }
+
+.no-border{
+    border: unset !important;
+}
+
+
