@@ -26,8 +26,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //   console.log(4)
 //   console.log(5)
-  fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(json => console.log(json))
 });
 
