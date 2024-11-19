@@ -212,6 +212,11 @@
     
   </section>
 
+  <section id="test_section" class="grey" x-data="{message: 'i love programing'}">
+    <span x-text="message" class="red"></span>
+    <button class="btn" x-on:click="message= 'i am parham'">button</button>
+  </section>
+
   <div class="add_user_modal_back dis-none"></div>
   <div class="add_user_modal container trans-0-3">
     <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
@@ -239,9 +244,9 @@
     </div>
   </div>
   <!-- content section end -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/userjs.js"></script>
-  
 </body>
 </html>
