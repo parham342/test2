@@ -212,9 +212,10 @@
     
   </section>
 
-  <section id="test_section" class="grey" x-data="{message: 'i love programing'}">
+  <section id="test_section" class="grey" x-data="mainData()">
+    111
     <span x-text="message" class="red"></span>
-    <button class="btn" x-on:click="message= 'i am parham'">button</button>
+    <button class="btn" x-on:click="testfunc()">button</button>
   </section>
 
   <div class="add_user_modal_back dis-none"></div>
@@ -248,5 +249,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/userjs.js"></script>
+  <script src="/assets/js/alpinejscontroller.js"></script>
 </body>
 </html>
