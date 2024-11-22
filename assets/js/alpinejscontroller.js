@@ -1,12 +1,12 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('mainData', () => (
-        {
-        message: 'i love programming', 
-        names: ['parham', 'abbas','ali'], 
-            
-        testfunc(){
-            alert(this.message)
-                }
-        }
-    ))
+    Alpine.data('usersData', function(){
+        return {
+            users: [],
+            getUsers(){
+                axios.get("https://jsonplaceholder.typicode.com/users").then((res)=>{
+                    this.users= res.data
+                })
+            }
+       }
+    })
 })

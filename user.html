@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/assets/css/materialize_rtl.css">
     <link rel="icon" type="image/x-icon" href="/image/favicon.ico">
 </head>
-<body dir="rtl">
+<body dir="rtl" x-data="usersData">
     <!-- navbar section start -->
   <nav class="white z-depth-0 top_navbar">
     <div class="nav-wrapper">
@@ -71,7 +71,7 @@
   </section>
 
 
-  <section class="user_list_section">
+  <section class="user_list_section" x-init="getUsers()">
     <ul class="collapsible hide-on-med-and-up">
       <li class="user_list_item">
         <div class="collapsible-header">
@@ -139,12 +139,13 @@
           </tr>
         </thead>
         <tbody class='desktop_table_body'>
+          <template x-for="user in users">
           <tr>
-            <td>1</td>
-            <td>parham</td>
-            <td>ph_fard</td>
-            <td>parhamfard@gmail.com</td>
-            <td>berlin</td>
+            <td x-test="user.id"></td>
+            <td x-text="user.name"></td>
+            <td x-text="user.username"></td>
+            <td x-text="user.email"></td>
+            <td x-text="user.address.city+' '+user.address.street"></td>
             <td>
               <i class="material-icons orange-text darken-3 hov-pointer">edit</i>
               <i class="material-icons red-text hov-pointer">
@@ -152,45 +153,7 @@
               </i>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>parham</td>
-            <td>ph_fard</td>
-            <td>parhamfard@gmail.com</td>
-            <td>berlin</td>
-            <td>
-              <i class="material-icons orange-text darken-3 hov-pointer">edit</i>
-              <i class="material-icons red-text hov-pointer">
-                delete_forever
-              </i>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>parham</td>
-            <td>ph_fard</td>
-            <td>parhamfard@gmail.com</td>
-            <td>berlin</td>
-            <td>
-              <i class="material-icons orange-text darken-3 hov-pointer">edit</i>
-              <i class="material-icons red-text hov-pointer">
-                delete_forever
-              </i>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>parham</td>
-            <td>ph_fard</td>
-            <td>parhamfard@gmail.com</td>
-            <td>berlin</td>
-            <td>
-              <i class="material-icons orange-text darken-3 hov-pointer">edit</i>
-              <i class="material-icons red-text hov-pointer">
-                delete_forever
-              </i>
-            </td>
-          </tr>
+        </template>
         </tbody>
       </table>
     </div>
@@ -212,11 +175,7 @@
     
   </section>
 
-  <section id="test_section" class="grey" x-data="mainData()">
-    111
-    <span x-text="message" class="red"></span>
-    <button class="btn" x-on:click="testfunc()">button</button>
-  </section>
+
 
   <div class="add_user_modal_back dis-none"></div>
   <div class="add_user_modal container trans-0-3">
@@ -250,5 +209,6 @@
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/userjs.js"></script>
   <script src="/assets/js/alpinejscontroller.js"></script>
+  <script src="/assets/js/axios.js"></script>
 </body>
 </html>
