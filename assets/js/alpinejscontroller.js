@@ -3,6 +3,7 @@ document.addEventListener('alpine:init', () => {
         return {
             users: [],
             isloading: false,
+            showAddModal: false,
             getUsers(){
                 this.isloading = true
                 axios.get("https://jsonplaceholder.typicode.com/users").then((res)=>{
