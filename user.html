@@ -161,7 +161,7 @@
 
 
 
-  <div class="add_user_modal_back" x-bind:class="{'dis-none' : !showAddModal}" x-on:click="showAddModal = false"></div>
+  <div class="add_user_modal_back" x-show="showAddModal" x-transition x-on:click="showAddModal = false"></div>
   <div class="add_user_modal container trans-0-3" x-bind:class="{'show' : showAddModal}">
     <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
       <h5>
@@ -171,18 +171,18 @@
       <form>
         <div class="input-field col s12">
           <input id="name" type="text" class="validate" />
-          <label for="name">name:</label>
+          <label for="name">Name :</label>
         </div>
         <div class="input-field col s12">
           <input id="username" type="text" class="validate" />
-          <label for="username">username:</label>
+          <label for="username">Username :</label>
         </div>
         <div class="input-field col s12">
           <input id="email" type="email" class="validate" />
-          <label for="email">Email</label>
+          <label for="email">Email :</label>
         </div>
         <button type="button" class="waves-effect waves-light btn blue darken-1 m-t-20 m-b-10 w-full max-w-250 rounded_pill">
-          submit
+          Submit
         </button>
       </form>
     </div>
