@@ -79,7 +79,7 @@
 
   <section class="user_list_section" x-init="getUsers()">
     <ul class="collapsible hide-on-med-and-up">
-      <template x-for="user in users">
+      <template x-for="user in pageusers">
       <li class="user_list_item">
         <div class="collapsible-header">
           <i class="material-icons blue-text users_list_arrow_icon">arrow_drop_down_circle</i>
@@ -123,7 +123,7 @@
           </tr>
         </thead>
         <tbody class='desktop_table_body'>
-          <template x-for="user in users">
+          <template x-for="user in pageusers">
           <tr>
             <td x-test="user.id"></td>
             <td x-text="user.name"></td>
