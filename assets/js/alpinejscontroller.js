@@ -35,6 +35,13 @@ document.addEventListener('alpine:init', () => {
             this.cuttentpage--
             if (this.cuttentpage < 1) this.cuttentpage = 1
             this.pagination()
+           },
+           handleChangeItemsCount(e){
+            this.itemscount = e.value
+            this.cuttentpage = 1
+            if (this.itemscount < 1) this.itemscount = 1
+            if (this.itemscount > this.users.length) this.itemscount = this.users.length
+            this.pagination()
            }
        }
        
