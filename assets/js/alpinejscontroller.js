@@ -9,6 +9,11 @@ document.addEventListener('alpine:init', () => {
             pagecount: 1,
             itemscount: 4,
             cuttentpage: 1,
+            newusersinfo:{
+                name:'',
+                username:'',
+                email:'',
+            },
             getUsers(){
                 this.isloading = true
                 axios.get("https://jsonplaceholder.typicode.com/users").then((res)=>{
@@ -51,6 +56,9 @@ document.addEventListener('alpine:init', () => {
                 this.cuttentpage = 1
                 this.pagination()
             },100)
+           },
+           handlesubmitadduserform(e){
+            console.log(this.newusersinfo)
            }
        }
        
