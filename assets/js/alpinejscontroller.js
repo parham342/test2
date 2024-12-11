@@ -1,6 +1,7 @@
 document.addEventListener('alpine:init', () => {
     Alpine.data('usersData', function(){
         return {
+            mainusers: [],
             users: [],
             pageusers: [],
             isloading: false,
@@ -12,6 +13,7 @@ document.addEventListener('alpine:init', () => {
                 this.isloading = true
                 axios.get("https://jsonplaceholder.typicode.com/users").then((res)=>{
                     this.users= res.data
+                    this.mainusers= res.data
                     this.pagination()
                 }).catch(error=>{
                     console.log(error.message);
@@ -42,6 +44,13 @@ document.addEventListener('alpine:init', () => {
             if (this.itemscount < 1) this.itemscount = 1
             if (this.itemscount > this.users.length) this.itemscount = this.users.length
             this.pagination()
+           },
+           handlesearch(e){
+            setTimeout(() => {
+                this.users = this.mainusers.filter(user=>user.name.includes(e.value) || user.username.includes(e.value) || user.email.includes(e.value))
+                this.cuttentpage = 1
+                this.pagination()
+            },100)
            }
        }
        

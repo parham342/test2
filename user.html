@@ -57,7 +57,7 @@
         <!-- search section start -->
     <div class="row col s12 m9 l8">
       <div class="input-field col s12">
-        <input id="search" type="text" class="validate">
+        <input id="search" type="text" class="validate" x-on:keydown="handlesearch($el)">
         <label for="search">
           <i class="material-icons pos_relative_top7px">search</i>
           Search
