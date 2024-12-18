@@ -63,12 +63,22 @@ document.addEventListener('alpine:init', () => {
                 if (res.status == 201){
                     this.mainusers.push(res.data)
                     this.showAddModal= false
+                    this.handleresetform()
                     this.pagination()
+                    M.toast({html: 'I am a toast!', classes: 'rounded green'});
                 }
             }).finally(()=>{
                 this.isloading = false
             })
         
+           },
+           handleresetform(){
+            this.newusersinfo ={
+                name:"",
+                username:"",
+                email:"",
+            }
+
            }
        }
        
