@@ -65,7 +65,7 @@ document.addEventListener('alpine:init', () => {
                     this.showAddModal= false
                     this.handleresetform()
                     this.pagination()
-                    M.toast({html: 'I am a toast!', classes: 'rounded green'});
+                    M.toast({html: 'user created succesfully...', classes: 'rounded green'});
                 }
             }).finally(()=>{
                 this.isloading = false
@@ -79,7 +79,26 @@ document.addEventListener('alpine:init', () => {
                 email:"",
             }
 
+           },
+           handledeleteuser(userId){
+            var toastHTML = '<span>are you sure? ('+userId+')</span><button class="btn-flat toast-action" x-on:click="handleconfirmdeleteuser('+userId+')">Delete</button>';
+            M.toast({html: toastHTML});
+           },
+           handleconfirmdeleteuser(userId){
+            this.isloading = true
+            axios.delete("https://jsonplaceholder.typicode.com/users/"+userId).then((res)=>{
+                if (res.status == 200){
+                    this.mainusers = this.mainusers.filter(user=>user.id != userId)
+                    this.users = this.users.filter(user=>user.id != userId)
+                    this.pagination()
+                    M.toast({html: 'user delete succesfully...', classes: 'green'});
+                }
+                
+            }).finally(()=>{
+                this.isloading = false
+            })
            }
+           
        }
        
     })

@@ -96,12 +96,12 @@
           </div>
           <div>
             <span class="f-bold">Address : </span>
-            <span x-text="(!user.address?.city || '')+'-'+(!user.address?.street || '')"></span>
+            <span x-text="(!user.address.city || '')+'-'+(!user.address.street || '')"></span>
           </div>
           <div>
             <span class="f-bold">Action : </span>
 
-            <i class="material-icons red-text m-l-5 m-r-5">delete_forever</i>
+            <i class="material-icons red-text m-l-5 m-r-5" x-on:click="handledeleteuser(user.id)">delete_forever</i>
             <i class="material-icons orange-text darken-3 m-l-5 m-r-5">edit</i>
           </div>
         </div>
@@ -129,10 +129,10 @@
             <td x-text="user.name"></td>
             <td x-text="user.username"></td>
             <td x-text="user.email"></td>
-            <td x-text="(!user.address?.city || '')+'-'+(!user.address?.street || '')"></td>
+            <td x-text="(!user.address.city || '')+'-'+(!user.address.street || '')"></td>
             <td>
               <i class="material-icons orange-text darken-3 hov-pointer">edit</i>
-              <i class="material-icons red-text hov-pointer">
+              <i class="material-icons red-text hov-pointer" x-on:click="handledeleteuser(user.id)">
                 delete_forever
               </i>
             </td>
