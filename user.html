@@ -48,7 +48,7 @@
   <section id="top_actions_section" class="row container">
         <!-- add button start -->
     <div class="col s12 m3 l2">
-      <button id="add_user_button" class="waves-effect waves-light btn blue darken-2 w_100 rounded_pill flex_center"x-on:click="showAddModal = true">
+      <button id="add_user_button" class="waves-effect waves-light btn blue darken-2 w_100 rounded_pill flex_center"x-on:click="showAddModal = true; useridtoedit = null; handleresetform()">
         <i class="material-icons">add</i>
         Add User
       </button>
@@ -102,7 +102,7 @@
             <span class="f-bold">Action : </span>
 
             <i class="material-icons red-text m-l-5 m-r-5" x-on:click="handledeleteuser(user.id)">delete_forever</i>
-            <i class="material-icons orange-text darken-3 m-l-5 m-r-5">edit</i>
+            <i class="material-icons orange-text darken-3 m-l-5 m-r-5" x-on:click="handleupdateuser(user)">edit</i>
           </div>
         </div>
       </li>
@@ -131,7 +131,7 @@
             <td x-text="user.email"></td>
             <td x-text="(!user.address.city || '')+'-'+(!user.address.street || '')"></td>
             <td>
-              <i class="material-icons orange-text darken-3 hov-pointer">edit</i>
+              <i class="material-icons orange-text darken-3 hov-pointer" x-on:click="handleupdateuser(user)">edit</i>
               <i class="material-icons red-text hov-pointer" x-on:click="handledeleteuser(user.id)">
                 delete_forever
               </i>
@@ -167,7 +167,7 @@
     <div class="row p-t-10 p-b-10 p-r-40 p-l-40 center-on-small-only">
       <h5>
         <i class="material-icons m-r-10 m-l-10 pos-relative top-4">person_add</i>
-        Add User
+        <span x-text="useridtoedit ? 'Edit User' : 'Add User'"></span>
       </h5>
       <form>
         <div class="input-field col s12">
@@ -185,7 +185,7 @@
           <label for="email">Email :</label>
         </div>
 
-        <button type="button" class="waves-effect waves-light btn blue darken-1 m-t-20 m-b-10 w-full max-w-250 rounded_pill " x-on:click="handlesubmitadduserform" x-bind:class="{'pulse' : isloading}" x-bind:disabled="isloading">
+        <button type="button" class="waves-effect waves-light btn blue darken-1 m-t-20 m-b-10 w-full max-w-250 rounded_pill " x-on:click="useridtoedit ? handleconfirmedituser() :handlesubmitadduserform()" x-bind:class="{'pulse' : isloading,'orange': useridtoedit}" x-bind:disabled="isloading">
           Submit
         </button>
       </form>

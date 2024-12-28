@@ -14,6 +14,7 @@ document.addEventListener('alpine:init', () => {
                 username:'',
                 email:'',
             },
+            useridtoedit : null,
             getUsers(){
                 this.isloading = true
                 axios.get("https://jsonplaceholder.typicode.com/users").then((res)=>{
@@ -94,6 +95,36 @@ document.addEventListener('alpine:init', () => {
                     M.toast({html: 'user delete succesfully...', classes: 'green'});
                 }
                 
+            }).finally(()=>{
+                this.isloading = false
+            })
+           },
+           handleupdateuser(user){
+            axios.get("https://jsonplaceholder.typicode.com/users/"+user.id).then(res=>{
+                if(res.status == 200) {
+                    this.newusersinfo={
+                        name:user.name,
+                        username:user.username,
+                        email:user.email,
+                    }
+                    this.useridtoedit = res.data.id
+                }
+            })
+            this.showAddModal = true
+           },
+           handleconfirmedituser(){
+            this.isloading = true
+            axios.put("https://jsonplaceholder.typicode.com/users/"+this.useridtoedit, this.newusersinfo).then((res)=>{
+                if (res.status == 200){
+                    const userindex = this.mainusers.findIndex(user=>user.id == this.useridtoedit)
+                    this.mainusers[userindex] = res.data
+                    
+                    this.showAddModal= false
+                    this.handleresetform()
+                    this.useridtoedit = null
+                    this.pagination()
+                    M.toast({html: 'user updated succesfully...', classes: 'green'});
+                }
             }).finally(()=>{
                 this.isloading = false
             })
